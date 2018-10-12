@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nl.hkolvoort.api</groupId>
+  <artifactId>EulerWebService</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>EulerWebService2 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+	<properties>
+		<junit.version>4.12</junit.version>
+		<jersey.media.version>2.27</jersey.media.version>
+		<jersey.bundle.version>2.27</jersey.bundle.version>
+		<jaxb.api.version>2.3.1</jaxb.api.version>
+		<jaxb.impl.version>2.4.0-b180830.0438</jaxb.impl.version>
+		<jaxb.core.version>2.3.0.1</jaxb.core.version>
+		<javax.activation.version>1.1.1</javax.activation.version>
+ 		<maven.compiler.source>1.9</maven.compiler.source>
+		<maven.compiler.target>1.9</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<repositories>
+	<repository>
+	    <id>central</id>
+    <url>http://repo.maven.apache.org/maven2/</url>
+    </repository>
+	</repositories>
+  
+	<dependencies>
+	
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.glassfish.jersey.bundles</groupId>
+			<artifactId>jaxrs-ri</artifactId>
+			<version>${jersey.bundle.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+			<version>${jersey.media.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>${jaxb.api.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-core</artifactId>
+		    <version>${jaxb.core.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-impl</artifactId>
+		    <version>${jaxb.impl.version}</version>
+		</dependency>
+		
+<!-- 		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>${javax.activation.version}</version>
+		</dependency> -->
+		
+	</dependencies>
+	
+	<build>
+		<finalName>EulerWebService</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
