@@ -1,11 +1,16 @@
 package nl.hkolvoort.euler;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Positive;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class SimpleObject {
+	
 	private int sum;
+	
+	@Positive(message = "Use positive numbers only, zero excluded")
 	private int multiple1;
 	private int multiple2;
 	private int limit;
