@@ -1,8 +1,7 @@
 package nl.hkolvoort.euler;
 
+import javax.validation.constraints.Positive;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import nl.hkolvoort.euler.SimpleObject;
 
 /**
  * @author Harm Kolvoort
@@ -20,8 +19,9 @@ import nl.hkolvoort.euler.SimpleObject;
 @XmlRootElement
 public class P001_SumOfMultiples {
 	private SimpleObject euler001;
-	
 	private Integer sum = 0;
+	
+	@Positive
 	private Integer multiple1;
 	private Integer multiple2;
 	private Integer limit;
@@ -88,7 +88,6 @@ public class P001_SumOfMultiples {
 		this.sumOfMultiples();
 		this.euler001.setSum(this.sum);
 		System.out.println(this.sum);
-		
 	}
 	
 	/**
