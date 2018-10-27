@@ -31,33 +31,33 @@ public class Euler001Resource extends Application{
 	@POST
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getSimpleObject2(Euler001RequestBody Euler001ReqBody) {
-		
+	public Response getSimpleObject2(Euler001RequestBody Euler001ReqBody) 
+	{
+	   // Do validations
 	   ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 	   Validator validator = factory.getValidator();
 	   Set<ConstraintViolation<Euler001RequestBody>> violations = validator.validate(Euler001ReqBody);
 	   
-	   if  (violations.isEmpty()){
+	   // No violations
+	   if  (violations.isEmpty()) 
+	   {
 		   SimpleObject resp = new P001_SumOfMultiples(Euler001ReqBody.getMultiple1(),Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit()).getEuler001();
 		   return Response.status(Response.Status.OK).entity(resp).build();
 	   }	
-	   else {
+	   // One or more violation
+	   else 
+	   {
 		   EulerValidations ev = new EulerValidations();
-		   String errMsg = "";
-		   for (ConstraintViolation<Euler001RequestBody> violation : violations) {
+		   for (ConstraintViolation<Euler001RequestBody> violation : violations) 
+		   {
 			   ev.add(new Euler001ValidationMessage(
 					   		violation.getRootBeanClass().toString(),
 					   		violation.getPropertyPath().toString(),
 					   		violation.getInvalidValue().toString(),
 					   		violation.getMessage().toString()
 					   ));
-			   errMsg += violation.getRootBeanClass().toString()
-					   	+ " / " + violation.getPropertyPath().toString() 
-					   	+ " / " + violation.getInvalidValue().toString() 
-					   	+ " / " + violation.getMessage().toString()
-					   	+ "\n";
 		   }
-		   return Response.status(Response.Status.BAD_REQUEST).entity(errMsg).build();
+		   return Response.status(Response.Status.BAD_REQUEST).entity(ev).build();
 	   }
 	}
 }

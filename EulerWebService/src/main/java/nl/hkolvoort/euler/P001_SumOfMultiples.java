@@ -87,7 +87,6 @@ public class P001_SumOfMultiples {
 		this.limit = limit;
 		this.sumOfMultiples();
 		this.euler001.setSum(this.sum);
-		System.out.println(this.sum);
 	}
 	
 	/**
