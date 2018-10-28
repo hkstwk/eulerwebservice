@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 import nl.hkolvoort.euler.Euler001RequestBody;
 import nl.hkolvoort.euler.Euler001ValidationMessage;
 import nl.hkolvoort.euler.EulerValidationMessages;
-import nl.hkolvoort.euler.P001_SumOfMultiples;
+import nl.hkolvoort.euler.Euler001SumOfMultiples;
 import nl.hkolvoort.euler.Euler001ResponseBody;
 
 @Path("/euler/1")
@@ -38,17 +38,17 @@ public class Euler001Resource extends Application{
 	   Validator validator = factory.getValidator();
 	   Set<ConstraintViolation<Euler001RequestBody>> violations = validator.validate(Euler001ReqBody);
 	   
-	   // No violations
+	   // No violations found
 	   if  (violations.isEmpty()) 
 	   {
 		   // determine sum of multiples using input provided in Request Body
-		   Integer sum = P001_SumOfMultiples.sumOfMultiples1(Euler001ReqBody.getMultiple1(), Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit());
+		   Integer sum = Euler001SumOfMultiples.sumOfMultiples(Euler001ReqBody.getMultiple1(), Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit());
 		   //Create response body
 		   Euler001ResponseBody resp = new Euler001ResponseBody(Euler001ReqBody.getMultiple1(),Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit(), sum);
 		   
 		   return Response.status(Response.Status.OK).entity(resp).build();
 	   }	
-	   // One or more violation
+	   // One or more violation found
 	   else 
 	   {
 		   // create response body
