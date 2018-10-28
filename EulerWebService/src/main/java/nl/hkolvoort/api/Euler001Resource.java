@@ -16,7 +16,7 @@ import javax.ws.rs.core.Response;
 
 import nl.hkolvoort.euler.Euler001RequestBody;
 import nl.hkolvoort.euler.Euler001ValidationMessage;
-import nl.hkolvoort.euler.EulerValidations;
+import nl.hkolvoort.euler.EulerValidationMessages;
 import nl.hkolvoort.euler.P001_SumOfMultiples;
 import nl.hkolvoort.euler.SimpleObject;
 
@@ -47,7 +47,7 @@ public class Euler001Resource extends Application{
 	   // One or more violation
 	   else 
 	   {
-		   EulerValidations ev = new EulerValidations();
+		   EulerValidationMessages ev = new EulerValidationMessages();
 		   for (ConstraintViolation<Euler001RequestBody> violation : violations) 
 		   {
 			   ev.add(new Euler001ValidationMessage(

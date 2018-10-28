@@ -7,11 +7,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class EulerValidations {
+public class EulerValidationMessages {
 
 	List<Euler001ValidationMessage>  validations;
 
-	public EulerValidations() {
+	public EulerValidationMessages() {
 		validations = new ArrayList<Euler001ValidationMessage>();
 	}
 
