@@ -18,7 +18,7 @@ import nl.hkolvoort.euler.Euler001RequestBody;
 import nl.hkolvoort.euler.Euler001ValidationMessage;
 import nl.hkolvoort.euler.EulerValidationMessages;
 import nl.hkolvoort.euler.P001_SumOfMultiples;
-import nl.hkolvoort.euler.SimpleObject;
+import nl.hkolvoort.euler.Euler001ResponseBody;
 
 @Path("/euler/1")
 public class Euler001Resource extends Application{
@@ -41,12 +41,17 @@ public class Euler001Resource extends Application{
 	   // No violations
 	   if  (violations.isEmpty()) 
 	   {
-		   SimpleObject resp = new P001_SumOfMultiples(Euler001ReqBody.getMultiple1(),Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit()).getEuler001();
+		   // determine sum of multiples using input provided in Request Body
+		   Integer sum = P001_SumOfMultiples.sumOfMultiples1(Euler001ReqBody.getMultiple1(), Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit());
+		   //Create response body
+		   Euler001ResponseBody resp = new Euler001ResponseBody(Euler001ReqBody.getMultiple1(),Euler001ReqBody.getMultiple2(), Euler001ReqBody.getLimit(), sum);
+		   
 		   return Response.status(Response.Status.OK).entity(resp).build();
 	   }	
 	   // One or more violation
 	   else 
 	   {
+		   // create response body
 		   EulerValidationMessages ev = new EulerValidationMessages();
 		   for (ConstraintViolation<Euler001RequestBody> violation : violations) 
 		   {
@@ -57,6 +62,7 @@ public class Euler001Resource extends Application{
 					   		violation.getMessage().toString()
 					   ));
 		   }
+		   
 		   return Response.status(Response.Status.BAD_REQUEST).entity(ev).build();
 	   }
 	}

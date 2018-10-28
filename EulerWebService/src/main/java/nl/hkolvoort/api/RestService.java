@@ -15,7 +15,7 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 
 import nl.hkolvoort.euler.P001_SumOfMultiples;
-import nl.hkolvoort.euler.SimpleObject;
+import nl.hkolvoort.euler.Euler001ResponseBody;
 
 @Path("/api")
 @ApplicationPath("/resources")
@@ -44,7 +44,7 @@ public class RestService extends Application{
 	@GET
 	@Path("/euler/11")
 	@Produces(MediaType.APPLICATION_JSON)
-	public SimpleObject getSimpleObject(
+	public Euler001ResponseBody getSimpleObject(
 			@QueryParam("multipleA") int multipleA,
 			@QueryParam("multipleB") int multipleB,
 			@QueryParam("limit")     int limit){
@@ -56,7 +56,7 @@ public class RestService extends Application{
 	@Path("/euler/12")
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Consumes(MediaType.APPLICATION_JSON)
-	public SimpleObject getSimpleObject2(SimpleObject simpleObj) {
+	public Euler001ResponseBody getSimpleObject2(Euler001ResponseBody simpleObj) {
        return new P001_SumOfMultiples(simpleObj.getMultiple1(),simpleObj.getMultiple2(),simpleObj.getLimit()).getEuler001();
 	}
 }

@@ -1,8 +1,5 @@
 package nl.hkolvoort.euler;
 
-import javax.validation.constraints.Positive;
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * @author Harm Kolvoort
  * @date 14-11-2014
@@ -16,17 +13,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 
-@XmlRootElement
 public class P001_SumOfMultiples {
-	private SimpleObject euler001;
+	private Euler001ResponseBody euler001;
 	private Integer sum = 0;
 	
-	@Positive
 	private Integer multiple1;
 	private Integer multiple2;
 	private Integer limit;
 	
-	public SimpleObject getEuler001() {
+	public Euler001ResponseBody getEuler001() {
 		return euler001;
 	}
 
@@ -80,7 +75,7 @@ public class P001_SumOfMultiples {
 	 * Constructor 2
 	 */
 	public P001_SumOfMultiples(Integer multiple1, Integer multiple2, Integer limit) {
-		this.euler001 = new SimpleObject(multiple1, multiple2, limit);
+		this.euler001 = new Euler001ResponseBody(multiple1, multiple2, limit, 10);
 		this.sum = 0;
 		this.multiple1 = multiple1;
 		this.multiple2 = multiple2;
@@ -119,6 +114,38 @@ public class P001_SumOfMultiples {
 				this.sum += i;
 			}
 		}
+	}
+	
+	/**
+	 * Returns true if number is a multiple of divider
+	 * Example 1: 6 (number) is multiple of 3 (divider)
+	 * Example 2: 8 (number) not multiple of 5 (divider)
+	 * @param number
+	 * @param divider
+	 * @return
+	 */
+	public static boolean isMultiple1(Integer number, Integer divider) {
+		if (number % divider == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Method to determine sum of multiples below (not including) limit
+	 * @param multiple2
+	 * @param limit
+	 * @return
+	 */
+	public static Integer sumOfMultiples1(Integer multiple1, Integer multiple2, Integer limit) {
+		Integer sum = 0;		
+		for (int i=1; i<limit; i++) {
+			if (P001_SumOfMultiples.isMultiple1(i,multiple1) || P001_SumOfMultiples.isMultiple1(i,multiple2)){
+				sum += i;
+			}
+		}
+		return sum;
 	}
 
 }

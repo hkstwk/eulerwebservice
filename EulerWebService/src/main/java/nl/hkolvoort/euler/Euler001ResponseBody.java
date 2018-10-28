@@ -1,16 +1,13 @@
 package nl.hkolvoort.euler;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Positive;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class SimpleObject {
+public class Euler001ResponseBody {
 	
 	private int sum;
-	
-	
 	@Positive
 	private int multiple1;
 	@Positive
@@ -18,12 +15,12 @@ public class SimpleObject {
 	@Positive
 	private int limit;
 	
-	public SimpleObject() {
+	public Euler001ResponseBody() {
 		
 	}
 	
-	public SimpleObject(int multiple1, int multiple2, int limit) {
-		this.sum = 0;
+	public Euler001ResponseBody(int multiple1, int multiple2, int limit, int sum) {
+		this.sum = sum;
 		this.multiple1 = multiple1;
 		this.multiple2 = multiple2;
 		this.limit = limit;
