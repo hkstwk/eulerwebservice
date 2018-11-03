@@ -15,12 +15,13 @@ package nl.hkolvoort.euler;
 
 public class Euler001SumOfMultiples {
 	
-	/* Returns true if number is a multiple of divider
+	/** 
+	 * Static method that returns true if number is a multiple of divider
 	 * Example 1: 6 (number) is multiple of 3 (divider)
 	 * Example 2: 8 (number) not multiple of 5 (divider)
 	 * @param number
 	 * @param divider
-	 * @return
+	 * @return boolean
 	 */
 	public static boolean isMultiple(Integer number, Integer divider) {
 		if (number % divider == 0) {
@@ -31,10 +32,10 @@ public class Euler001SumOfMultiples {
 	}
 	
 	/**
-	 * Method to determine sum of multiples below (not including) limit
+	 * Static method to determine sum of multiples below (not including) limit
 	 * @param multiple2
 	 * @param limit
-	 * @return
+	 * @return Integer
 	 */
 	public static Integer sumOfMultiples(Integer multiple1, Integer multiple2, Integer limit) {
 		Integer sum = 0;		
