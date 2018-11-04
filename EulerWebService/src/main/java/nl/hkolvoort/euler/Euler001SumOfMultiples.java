@@ -2,7 +2,10 @@ package nl.hkolvoort.euler;
 
 /**
  * @author Harm Kolvoort
+ * @version %I%, %G%
  * @date 14-11-2014
+ * 
+ * Inspired by https://projecteuler.net/ 
  * 
  * Problem 1: Multiples of 3 and 5
  * If we list all the natural numbers below 10 

@@ -28,11 +28,9 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import nl.hkolvoort.euler.Euler001RequestBody;
 import nl.hkolvoort.euler.Euler001ValidationMessage;
 import nl.hkolvoort.euler.EulerValidationMessages;
 import nl.hkolvoort.euler.Euler001SumOfMultiples;
-import nl.hkolvoort.euler.Euler001ResponseBody;
 
 @Path("/euler/1")
 public class Euler001Resource extends Application {
