@@ -33,15 +33,23 @@ public class Euler001SumOfMultiples {
 	
 	/**
 	 * Static method to determine sum of multiples below (not including) limit
+	 * 
+	 * Problem 1: Multiples of 3 and 5
+	 * If we list all the natural numbers below 16
+	 * that are multiples of 3 or 5, we get 3, 5, 6, 9, 10, 12 and 15. 
+	 * The sum of these multiples is 60.
+	 * Mind that 15 is both multiple of 3 and 5, but is only added to sum once
+	 * 
+	 * @param multiple1
 	 * @param multiple2
 	 * @param limit
 	 * @return Integer
 	 */
 	public static Integer sumOfMultiples(Integer multiple1, Integer multiple2, Integer limit) {
 		Integer sum = 0;		
-		for (int i=1; i<limit; i++) {
-			if (Euler001SumOfMultiples.isMultiple(i,multiple1) || Euler001SumOfMultiples.isMultiple(i,multiple2)){
-				sum += i;
+		for (int naturalNumber=1; naturalNumber<limit; naturalNumber++) {
+			if (Euler001SumOfMultiples.isMultiple(naturalNumber,multiple1) || Euler001SumOfMultiples.isMultiple(naturalNumber,multiple2)){
+				sum += naturalNumber;
 			}
 		}
 		return sum;
