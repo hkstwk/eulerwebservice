@@ -25,11 +25,21 @@ public class Euler001SumOfMultiples {
 	 * @param number
 	 * @param divider
 	 * @return boolean
+	 * @throws
 	 */
 	public static boolean isMultiple(Integer number, Integer divider) {
-		if (number % divider == 0) {
-			return true;
-		} else {
+		try {
+			if (number % divider == 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (ArithmeticException e) {
+			/* 
+			 * Divider should not be zero.
+			 * In our case we catch and ignore 
+			 * the error and return false;
+			 */
 			return false;
 		}
 	}
