@@ -15,8 +15,8 @@ import javax.ws.rs.ext.Provider;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
-//@Provider
-@Consumes("application/json")
+@Provider
+@Consumes("application/xml")
 public class Euler001MessageBodyReader implements MessageBodyReader<Euler001RequestBody>  {
 
     @Override
@@ -35,9 +35,6 @@ public class Euler001MessageBodyReader implements MessageBodyReader<Euler001Requ
             return (Euler001RequestBody) jaxbContext.createUnmarshaller().unmarshal(entityStream);
         } catch (JAXBException e) {
             throw new ProcessingException("Error deserializing Euler001RequestBody.", e);
-        } finally {
-        	System.out.println("we're in trouble!");
-        	throw new ProcessingException("Error deserializing Euler001RequestBody.");
         }
     }
 }

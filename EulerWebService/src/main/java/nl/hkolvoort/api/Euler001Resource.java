@@ -28,9 +28,9 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import nl.hkolvoort.euler.Euler001SumOfMultiples;
 import nl.hkolvoort.euler.Euler001ValidationMessage;
 import nl.hkolvoort.euler.EulerValidationMessages;
-import nl.hkolvoort.euler.Euler001SumOfMultiples;
 
 @Path("/euler/1")
 public class Euler001Resource extends Application {
@@ -39,7 +39,7 @@ public class Euler001Resource extends Application {
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response doEuler001(Euler001RequestBody Euler001ReqBody) {
-		
+
 		// Do validations
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
