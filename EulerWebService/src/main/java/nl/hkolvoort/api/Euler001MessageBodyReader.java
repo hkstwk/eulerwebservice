@@ -15,7 +15,7 @@ import javax.ws.rs.ext.Provider;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
-@Provider
+//@Provider
 @Consumes("application/xml")
 public class Euler001MessageBodyReader implements MessageBodyReader<Euler001RequestBody>  {
 
