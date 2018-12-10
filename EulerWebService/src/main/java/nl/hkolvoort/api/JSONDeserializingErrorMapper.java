@@ -13,7 +13,7 @@ public class JSONDeserializingErrorMapper implements ExceptionMapper<Exception> 
 	@Override
 	public Response toResponse(Exception ex) { 
 	    return Response.status(400)
-	             .entity("{\"error\": \"error deserializing. Make sure to provide int value. }")
+	             .entity("{\"error\": \"error deserializing. Make sure to provide int value\" }")
 	             .type(MediaType.APPLICATION_JSON)
 	             .build();
 	}
