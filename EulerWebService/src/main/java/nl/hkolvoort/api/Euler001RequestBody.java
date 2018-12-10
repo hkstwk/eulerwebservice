@@ -1,6 +1,5 @@
 package nl.hkolvoort.api;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Positive;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -15,7 +14,6 @@ public class Euler001RequestBody {
 	private int multiple2;
 	
 	@Positive
-	@Max(80265)
 	private int limit;
 	
 	public Euler001RequestBody() {
